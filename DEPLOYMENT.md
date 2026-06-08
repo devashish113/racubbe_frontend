@@ -2,6 +2,8 @@
 
 This guide walks you through the step-by-step setup required to deploy the containerized TanStack Start application to an AWS EC2 instance, utilizing **GitHub** and **GitHub Webhooks** for automated CI/CD triggering on push events.
 
+In this setup, **Jenkins runs directly on the target EC2 instance**, pulling the code from GitHub, building the Docker image locally, and running the container on the same server. This removes the need for Docker Hub or SSH Agent credentials.
+
 ---
 
 ## Step 1: AWS EC2 Instance Setup
@@ -16,7 +18,7 @@ Open the following ports in your EC2 instance's inbound rules:
 
 | Port Range | Protocol | Source | Description |
 | :--- | :--- | :--- | :--- |
-| `22` | TCP | `0.0.0.0/0` (or your IP) | SSH Access (for admin and Jenkins deployment) |
+| `22` | TCP | `0.0.0.0/0` (or your IP) | SSH Access (for admin control) |
 | `80` | TCP | `0.0.0.0/0` | HTTP traffic (public web access via Nginx) |
 | `443` | TCP | `0.0.0.0/0` | HTTPS traffic (SSL web access via Nginx) |
 | `8080` | TCP | `0.0.0.0/0` (or your IP / GitHub CIDRs) | Jenkins Web Interface (needs to be public for GitHub Webhooks) |
@@ -70,7 +72,7 @@ newgrp docker
 
 ## Step 3: Install Jenkins
 
-Install OpenJDK 17 and Jenkins on your build server (e.g., your EC2 instance):
+Install OpenJDK 21 and Jenkins on your build server:
 ```bash
 # Install OpenJDK 21 (required by latest Jenkins versions)
 sudo apt-get install -y openjdk-21-jre
@@ -91,6 +93,7 @@ sudo systemctl start jenkins
 sudo systemctl enable jenkins
 
 # Add the 'jenkins' system user to the docker group
+# (Crucial: enables Jenkins to run Docker commands locally without sudo)
 sudo usermod -aG docker jenkins
 sudo systemctl restart jenkins
 ```
@@ -106,39 +109,26 @@ sudo systemctl restart jenkins
 
 ---
 
-## Step 4: Configure GitHub & Docker Credentials in Jenkins
+## Step 4: Configure GitHub Credentials in Jenkins
+
+If your GitHub repository is **private**, Jenkins needs credentials to pull the code.
 
 In Jenkins, go to **Manage Jenkins** -> **Credentials** -> **System** -> **Global credentials** -> **Add Credentials**:
-
-### 1. GitHub Repository Credentials
-If your repository is **private**, Jenkins needs credentials to pull the code.
 - **Kind:** Username with password (or SSH Username with private key)
 - **Username:** Your GitHub username
 - **Password:** A GitHub **Personal Access Token (PAT)** with `repo` scopes (generate this in GitHub under *Settings -> Developer settings -> Personal access tokens -> Tokens (classic)*)
 - **ID:** `github-repo-credentials`
 
-### 2. Docker Hub Credentials
-Allows Jenkins to push built images.
-- **Kind:** Username with password
-- **Username:** Your Docker Hub username
-- **Password:** Your Docker Hub password or access token
-- **ID:** `docker-hub-credentials` (must match `REGISTRY_CREDENTIALS_ID` in the `Jenkinsfile`)
-
-### 3. EC2 Deployment Private Key (SSH)
-Allows Jenkins to SSH into the target host to run commands.
-- **Kind:** SSH Username with private key
-- **ID:** `ec2-ssh-key` (must match `EC2_CREDENTIALS_ID` in the `Jenkinsfile`)
-- **Username:** `ubuntu`
-- **Private Key:** Click **Enter directly** and paste the content of your `.pem` key file.
+*(Note: Docker Hub Credentials and EC2 SSH Deployment Keys are not needed, as all builds and runs are executed locally on the host.)*
 
 ---
 
 ## Step 5: Configure Jenkins Plugins
 
-Ensure the following plugins are installed under **Manage Jenkins** -> **Plugins** -> **Installed plugins** (if missing, search under **Available plugins**):
+Ensure the following plugin is installed under **Manage Jenkins** -> **Plugins** -> **Installed plugins** (if missing, search under **Available plugins**):
 1. **GitHub Integration Plugin** (Enables webhook triggers)
-2. **Docker Pipeline** (Enables using the `docker` container runner in Jenkinsfile)
-3. **SSH Agent** (Provides the `sshagent` block for running commands on EC2 via SSH)
+
+*(Note: "Docker Pipeline" and "SSH Agent" plugins are not required, as we run raw Docker commands directly in the shell scripts).*
 
 ---
 
