@@ -231,31 +231,32 @@ function OrbitingGlobe() {
                 }}
               >
                 <motion.a
-                  href={item.href}
-                  title={item.title}
-                  animate={{ rotate: -360 }}
-                  transition={{
-                    duration: 55,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                  whileHover={{ scale: 1.12 }}
-                  className="-translate-x-1/2 -translate-y-1/2 group relative inline-flex h-16 w-16 items-center justify-center rounded-full glass border border-white/10 hover:border-[#1B75FF]/70 hover:bg-white/10 transition shadow-glow"
-                >
-                  <div className="flex flex-col items-center justify-center gap-1">
-                    <Icon
-                      size={17}
-                      className="text-[#1B75FF] group-hover:text-white transition"
-                    />
-                    <span className="text-[11px] font-bold tracking-wide text-white">
-                      {item.short}
-                    </span>
-                  </div>
+  href={item.href}
+  title={item.title}
+  initial={{ rotate: -angle }}
+  animate={{ rotate: -360 - angle }}
+  transition={{
+    duration: 55,
+    repeat: Infinity,
+    ease: "linear",
+  }}
+  whileHover={{ scale: 1.12 }}
+  className="-translate-x-1/2 -translate-y-1/2 group relative inline-flex h-16 w-16 items-center justify-center rounded-full glass border border-white/10 hover:border-[#1B75FF]/70 hover:bg-white/10 transition shadow-glow"
+>
+  <div className="flex flex-col items-center justify-center gap-1">
+    <Icon
+      size={17}
+      className="text-[#1B75FF] group-hover:text-white transition"
+    />
+    <span className="text-[11px] font-bold tracking-wide text-white">
+      {item.short}
+    </span>
+  </div>
 
-                  <span className="pointer-events-none absolute top-full mt-3 w-max max-w-[180px] rounded-lg bg-[#0E1424] border border-white/10 px-3 py-1.5 text-[11px] text-white opacity-0 group-hover:opacity-100 transition">
-                    {item.title}
-                  </span>
-                </motion.a>
+  <span className="pointer-events-none absolute top-full left-1/2 mt-3 w-max max-w-[180px] -translate-x-1/2 rounded-lg bg-[#0E1424] border border-white/10 px-3 py-1.5 text-[11px] text-white opacity-0 group-hover:opacity-100 transition z-20">
+    {item.title}
+  </span>
+</motion.a>
               </div>
             );
           })}
