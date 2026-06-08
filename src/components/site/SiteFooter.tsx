@@ -39,7 +39,7 @@ export function SiteFooter() {
         <div className="grid lg:grid-cols-6 gap-12">
           <div className="lg:col-span-2 space-y-6">
             <Link to="/" className="inline-flex items-center gap-3">
-              <img src={logo} alt="RACube Technologies" className="h-10 w-auto" />
+              <img src={logo} alt="RACube Technologies" className="h-15 w-auto" />
             </Link>
             <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">
               Genesys Premier Partner. Helping global enterprises modernize CCaaS, UCaaS, AI, Cloud and Customer Experience ecosystems.

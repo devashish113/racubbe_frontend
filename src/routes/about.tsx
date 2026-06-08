@@ -6,8 +6,8 @@ import { FlowDivider } from "@/components/site/MotionFX";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — RACube Technologies" },
-      { name: "description", content: "An enterprise CX engineering company built for the AI era. Meet RACube Technologies — Genesys Premier Partner." },
+      { title: "About - RACube Technologies" },
+      { name: "description", content: "An enterprise CX engineering company built for the AI era. Meet RACube Technologies - Genesys Premier Partner." },
       { property: "og:title", content: "About RACube Technologies" },
       { property: "og:description", content: "Enterprise CX engineering for the AI era." },
     ],

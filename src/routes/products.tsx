@@ -18,13 +18,13 @@ import { FlowDivider } from "@/components/site/MotionFX";
 export const Route = createFileRoute("/products")({
   head: () => ({
     meta: [
-      { title: "Products — RACube Technologies" },
+      { title: "Products - RACube Technologies" },
       {
         name: "description",
         content:
-          "RAautomiTe, RAautoPause, RAdaSh, RALogEd and more — RACube's proprietary product suite for Genesys, CCaaS automation, observability and DevOps.",
+          "RAautomiTe, RAautoPause, RAdaSh, RALogEd and more - RACube's proprietary product suite for Genesys, CCaaS automation, observability and DevOps.",
       },
-      { property: "og:title", content: "Products — RACube Technologies" },
+      { property: "og:title", content: "Products - RACube Technologies" },
       {
         property: "og:description",
         content:
@@ -49,7 +49,7 @@ type Product = {
 const products: Product[] = [
   {
     id: "raautomite-sync",
-    name: "RAautomiTe — Sync",
+    name: "RAautomiTe - Sync",
     tagline: "Next-generation automation & migration",
     category: "Automation · Migration",
     icon: RefreshCw,
@@ -70,10 +70,10 @@ const products: Product[] = [
     category: "Genesys Cloud · Compliance",
     icon: PauseCircle,
     description:
-      "Triggers secure pause during an active ACD call inside Genesys Cloud — no agent intervention required — based on configurable events.",
+      "Triggers secure pause during an active ACD call inside Genesys Cloud - no agent intervention required - based on configurable events.",
     bullets: [
       "Trigger on web navigation, screen-pop values, or custom events",
-      "PCI-DSS friendly — protects sensitive caller data",
+      "PCI-DSS friendly - protects sensitive caller data",
       "Configurable per queue, flow or business unit",
       "Lightweight footprint, deployed in days not months",
     ],
@@ -81,12 +81,12 @@ const products: Product[] = [
   },
   {
     id: "radash-p",
-    name: "RAdaSh — P",
+    name: "RAdaSh - P",
     tagline: "Performance & historical dashboard",
     category: "Analytics · Reporting",
     icon: LineChart,
     description:
-      "A customizable single-pane portal for interactions, callbacks, call waiting, SLA performance and forecasts — daily, weekly, monthly and yearly.",
+      "A customizable single-pane portal for interactions, callbacks, call waiting, SLA performance and forecasts - daily, weekly, monthly and yearly.",
     bullets: [
       "Single-pane KPI canvas with role-based views",
       "Interaction, CB, AHT, SLA and forecast tiles",
@@ -113,7 +113,7 @@ const products: Product[] = [
   },
   {
     id: "raautomite-ops",
-    name: "RAautomiTe — Ops",
+    name: "RAautomiTe - Ops",
     tagline: "DevOps automation for CX platforms",
     category: "DevOps · CI/CD",
     icon: GitBranch,
@@ -121,7 +121,7 @@ const products: Product[] = [
       "An automation tool blending a unique code base and multi-tech stack in a SaaSified world to maximise DevOps deployment for CX platforms.",
     bullets: [
       "Minimises risk of exposing production to live changes",
-      "Automated DevOps pipeline — Lower → UAT → PROD",
+      "Automated DevOps pipeline - Lower → UAT → PROD",
       "Protects against configurational and change outages",
       "Plugs into existing GitOps and approval workflows",
     ],
@@ -129,14 +129,14 @@ const products: Product[] = [
   },
   {
     id: "radash-o",
-    name: "RAdaSh — O",
+    name: "RAdaSh - O",
     tagline: "Operations & agent dashboard",
     category: "Operations · Supervisor",
     icon: Activity,
     description:
-      "Customizable operations portal — clinic open/close, live call readiness, agent availability, supervisor controls and queue management.",
+      "Customizable operations portal - clinic open/close, live call readiness, agent availability, supervisor controls and queue management.",
     bullets: [
-      "Live readiness — who's available, who's on queue",
+      "Live readiness - who's available, who's on queue",
       "Supervisor view & control with log on/off queue actions",
       "Customizable open/close windows and shift visibility",
       "Built for healthcare, BPO and high-volume contact centers",
@@ -155,7 +155,7 @@ function ProductsPage() {
             Proprietary products. <span className="text-gradient">Engineered by RACube.</span>
           </>
         }
-        subtitle="A next-generation suite for CX automation, migration, observability and DevOps — built to solve real-world problems we've seen inside global contact centers."
+        subtitle="A next-generation suite for CX automation, migration, observability and DevOps - built to solve real-world problems we've seen inside global contact centers."
       />
 
       <ProductGrid />
@@ -316,7 +316,7 @@ function ForensicBand() {
           <span className="text-gradient">mission-critical CX.</span>
         </h2>
         <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-          Beyond products — RACube embeds with your team to forensically audit,
+          Beyond products - RACube embeds with your team to forensically audit,
           re-architect and stabilize the platforms your customers depend on.
         </p>
       </div>

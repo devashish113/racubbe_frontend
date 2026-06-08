@@ -7,9 +7,9 @@ import { ArrowRight } from "lucide-react";
 export const Route = createFileRoute("/solutions")({
   head: () => ({
     meta: [
-      { title: "Enterprise Solutions — RACube Technologies" },
+      { title: "Enterprise Solutions - RACube Technologies" },
       { name: "description", content: "A complete portfolio of CCaaS, UCaaS, Genesys Cloud, Salesforce, AI and DevOps solutions for the modern enterprise." },
-      { property: "og:title", content: "Enterprise Solutions — RACube Technologies" },
+      { property: "og:title", content: "Enterprise Solutions - RACube Technologies" },
       { property: "og:description", content: "CX, Cloud and AI solutions engineered for global enterprises." },
     ],
   }),
@@ -22,7 +22,7 @@ function Page() {
       <PageHero
         eyebrow="Enterprise solutions"
         title={<>One <span className="text-gradient">integrated</span> portfolio for modern CX.</>}
-        subtitle="From Genesys Cloud and CCaaS to AI orchestration, cloud architecture and managed services — engineered for outcomes."
+        subtitle="From Genesys Cloud and CCaaS to AI orchestration, cloud architecture and managed services - engineered for outcomes."
       />
       <Solutions />
       <FlowDivider />

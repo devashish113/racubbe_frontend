@@ -6,9 +6,9 @@ import { FlowDivider } from "@/components/site/MotionFX";
 export const Route = createFileRoute("/ai-lab")({
   head: () => ({
     meta: [
-      { title: "AI & CX Innovation Lab — RACube Technologies" },
+      { title: "AI & CX Innovation Lab - RACube Technologies" },
       { name: "description", content: "Generative AI, agentic orchestration, conversational AI and speech analytics engineered for enterprise CX." },
-      { property: "og:title", content: "AI & CX Innovation Lab — RACube" },
+      { property: "og:title", content: "AI & CX Innovation Lab - RACube" },
       { property: "og:description", content: "Where human + machine shape enterprise customer experience." },
     ],
   }),
@@ -21,7 +21,7 @@ function Page() {
       <PageHero
         eyebrow="AI & CX Innovation Lab"
         title={<>Where <span className="text-gradient">human + machine</span> shape CX.</>}
-        subtitle="From generative agents to real-time speech intelligence — production-grade AI systems that move enterprise metrics."
+        subtitle="From generative agents to real-time speech intelligence - production-grade AI systems that move enterprise metrics."
       />
       <section className="py-8">
         <NeuralGraphic />

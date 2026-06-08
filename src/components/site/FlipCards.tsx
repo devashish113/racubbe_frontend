@@ -3,8 +3,8 @@ import { Sparkles, Bot, Cloud, Headphones, Network, Workflow } from "lucide-reac
 import { SectionShell } from "./HomePage";
 
 const cards = [
-  { icon: Headphones, t: "Genesys Cloud CX", front: "Premier-partner delivery", back: "Journey design, AI orchestration, WEM, analytics — full Genesys Cloud stack delivered by certified architects." },
-  { icon: Bot, t: "Agentic AI", front: "GenAI that ships", back: "Voice + chat bots, agent assist, knowledge co-pilots, speech analytics — production-grade, observable AI." },
+  { icon: Headphones, t: "Genesys Cloud CX", front: "Premier-partner delivery", back: "Journey design, AI orchestration, WEM, analytics - full Genesys Cloud stack delivered by certified architects." },
+  { icon: Bot, t: "Agentic AI", front: "GenAI that ships", back: "Voice + chat bots, agent assist, knowledge co-pilots, speech analytics - production-grade, observable AI." },
   { icon: Cloud, t: "Cloud Modernization", front: "AWS · Azure · GCP", back: "Landing zones, IaC, secure-by-design networking, FinOps and zero-downtime migrations at enterprise scale." },
   { icon: Network, t: "CCaaS Migration", front: "Avaya/Cisco → Cloud", back: "Zero-downtime cutovers, parallel-run playbooks, integration with CRM, telephony, identity and data lakes." },
   { icon: Workflow, t: "Platform Engineering", front: "DevOps · CI/CD · SRE", back: "Pipelines, observability, golden paths and platform engineering for elite delivery teams." },
@@ -15,7 +15,7 @@ export function FlipCards() {
   return (
     <SectionShell
       eyebrow="Interactive capabilities"
-      title={<>Hover to reveal — our <span className="text-gradient">delivery muscle</span>, in motion.</>}
+      title={<>Hover to reveal - our <span className="text-gradient">delivery muscle</span>, in motion.</>}
     >
       <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 [perspective:1400px]">
         {cards.map((c, i) => (
@@ -37,10 +37,10 @@ export function FlipCards() {
                 <div className="mt-5 text-lg font-semibold">{c.t}</div>
                 <div className="mt-1 text-sm text-muted-foreground">{c.front}</div>
               </div>
-              <div className="relative text-[11px] uppercase tracking-widest text-[#1B75FF] flex items-center gap-2">
+              {/* <div className="relative text-[11px] uppercase tracking-widest text-[#1B75FF] flex items-center gap-2">
                 Hover to reveal
                 <span className="h-px w-8 bg-[#1B75FF]" />
-              </div>
+              </div> */}
             </div>
             {/* Back */}
             <div className="absolute inset-0 rounded-2xl bg-aurora p-6 [backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col justify-between shadow-glow overflow-hidden">
@@ -98,7 +98,7 @@ export function GlobeGraphic() {
   );
 }
 
-/* Neural-network graphic for AI Lab — pulsing nodes + animated synapses */
+/* Neural-network graphic for AI Lab - pulsing nodes + animated synapses */
 export function NeuralGraphic() {
   const nodes = [
     { x: 50, y: 20 }, { x: 20, y: 50 }, { x: 80, y: 50 },
@@ -144,7 +144,7 @@ export function NeuralGraphic() {
   );
 }
 
-/* Orbiting constellation for About — represents distributed teams */
+/* Orbiting constellation for About - represents distributed teams */
 export function OrbitGraphic() {
   const orbits = [
     { size: 200, dur: 18, count: 3, color: "#1B75FF" },

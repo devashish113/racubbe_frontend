@@ -29,7 +29,7 @@ export function CinematicBand() {
         <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.3em] text-white/70 glass px-4 py-2 rounded-full">
           <Sparkles size={12} /> The RACube Operating Model
         </div>
-        <h2 className="mt-10 text-5xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight font-display font-semibold">
+        <h2 className="mt-10 text-5xl md:text-7xl lg:text-8xl  leading-[0.95] tracking-tight font-display font-semibold">
           We engineer{" "}
           <span className="font-serif-display italic text-gradient">customer</span>
           <br />
@@ -40,7 +40,7 @@ export function CinematicBand() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ delay: i * 0.12, duration: 0.7, ease: [0.2, 0.7, 0.2, 1] }}
-              className="inline-block mx-3 font-serif-display italic"
+              className="inline-block mx-3 font-serif-display italic my-3"
               style={{ color: i % 2 === 0 ? "#1B75FF" : "#fff" }}
             >
               {w}
@@ -48,7 +48,7 @@ export function CinematicBand() {
           ))}
         </h2>
         <p className="mt-10 max-w-2xl mx-auto text-lg text-white/70">
-          One integrated platform team across Genesys, AI, Cloud and CX — composing
+          One integrated platform team across Genesys, AI, Cloud and CX - composing
           experiences that move enterprise metrics, not vanity dashboards.
         </p>
       </motion.div>
@@ -74,7 +74,7 @@ export function BentoCapabilities() {
             </h2>
           </div>
           <p className="text-muted-foreground max-w-md">
-            From journey design to agentic AI in production — modular building blocks
+            From journey design to agentic AI in production - modular building blocks
             engineered to ship in weeks, not quarters.
           </p>
         </div>
@@ -119,14 +119,14 @@ export function BentoCapabilities() {
           <div className="bento-card relative col-span-6 lg:col-span-4 row-span-1 rounded-3xl glass border-gradient p-6 overflow-hidden">
             <Bot className="text-[#1B75FF]" />
             <div className="mt-3 font-semibold">Agentic AI</div>
-            <div className="text-sm text-muted-foreground mt-1">Bots, copilots, RAG, evals — production-grade.</div>
+            <div className="text-sm text-muted-foreground mt-1">Bots, copilots, RAG, evals - production-grade.</div>
           </div>
 
           {/* Cloud */}
           <div className="bento-card relative col-span-6 lg:col-span-4 row-span-1 rounded-3xl glass border-gradient p-6 overflow-hidden">
             <Cloud className="text-[#1B75FF]" />
             <div className="mt-3 font-semibold">Cloud Modernization</div>
-            <div className="text-sm text-muted-foreground mt-1">AWS · Azure · GCP — IaC + FinOps.</div>
+            <div className="text-sm text-muted-foreground mt-1">AWS · Azure · GCP - IaC + FinOps.</div>
           </div>
 
           {/* Workflow tall */}
@@ -137,7 +137,7 @@ export function BentoCapabilities() {
               <div>
                 <div className="text-3xl font-semibold leading-tight">CCaaS Migration Engine</div>
                 <p className="mt-3 text-white/85 text-sm leading-relaxed">
-                  Zero-downtime cutovers from Avaya / Cisco / NICE to Genesys Cloud — with parallel-run playbooks.
+                  Zero-downtime cutovers from Avaya / Cisco / NICE to Genesys Cloud - with parallel-run playbooks.
                 </p>
                 <Link to="/solutions" className="mt-6 inline-flex items-center gap-1 text-sm font-medium">
                   Explore migration <ArrowUpRight size={14} />
@@ -157,7 +157,7 @@ export function BentoCapabilities() {
           <div className="bento-card relative col-span-6 lg:col-span-4 row-span-1 rounded-3xl glass border-gradient p-6 overflow-hidden">
             <Shield className="text-[#1B75FF]" />
             <div className="mt-3 font-semibold">Security & Compliance</div>
-            <div className="text-sm text-muted-foreground mt-1">SOC2, HIPAA, PCI — secure by design.</div>
+            <div className="text-sm text-muted-foreground mt-1">SOC2, HIPAA, PCI - secure by design.</div>
           </div>
         </div>
       </div>
@@ -170,10 +170,10 @@ export function BentoCapabilities() {
    Sticky left title, scrolling steps right
 ────────────────────────────────────────────────────────────── */
 const steps = [
-  { n: "01", t: "Discover", d: "Journey mapping, voice-of-customer, gap analysis and a measurable outcome model — co-created with your teams." , icon: LineChart },
+  { n: "01", t: "Discover", d: "Journey mapping, voice-of-customer, gap analysis and a measurable outcome model - co-created with your teams." , icon: LineChart },
   { n: "02", t: "Design", d: "Reference architecture, conversation design, AI orchestration patterns and integration blueprints.", icon: Layers },
   { n: "03", t: "Deliver", d: "Agile pods of certified Genesys architects, AI engineers and cloud specialists ship in 6-week cycles.", icon: Workflow },
-  { n: "04", t: "Optimize", d: "Continuous tuning of bots, routing, WEM and analytics — tied to NPS, AHT and conversion.", icon: Zap },
+  { n: "04", t: "Optimize", d: "Continuous tuning of bots, routing, WEM and analytics - tied to NPS, AHT and conversion.", icon: Zap },
 ];
 
 export function ScrollProcess() {
@@ -191,7 +191,7 @@ export function ScrollProcess() {
             </h2>
             <p className="mt-6 text-muted-foreground max-w-md">
               No theater. No 200-page decks. Just architects, engineers and operators
-              who have shipped Genesys, AI and Cloud at enterprise scale — repeatedly.
+              who have shipped Genesys, AI and Cloud at enterprise scale - repeatedly.
             </p>
             <Link
               to="/contact"
@@ -214,7 +214,7 @@ export function ScrollProcess() {
             >
               <div className="absolute -top-px left-8 right-8 h-px bg-gradient-to-r from-transparent via-[#1B75FF] to-transparent opacity-60" />
               <div className="flex items-start gap-6">
-                <div className="text-5xl md:text-6xl font-serif-display italic text-gradient leading-none">{s.n}</div>
+                <div className="text-5xl md:text-5xl font-serif-display italic text-gradient leading-none px-2">{s.n}</div>
                 <div className="flex-1">
                   <div className="flex items-center gap-3">
                     <s.icon className="text-[#1B75FF]" size={18} />
@@ -222,7 +222,7 @@ export function ScrollProcess() {
                   </div>
                   <p className="mt-3 text-muted-foreground leading-relaxed">{s.d}</p>
                 </div>
-                <ArrowUpRight className="opacity-0 group-hover:opacity-100 transition" />
+                {/* <ArrowUpRight className="opacity-0 group-hover:opacity-100 transition" /> */}
               </div>
             </motion.div>
           ))}
@@ -305,7 +305,7 @@ export function ManifestoCTA() {
         </motion.h2>
         <p className="mt-8 text-white/70 max-w-2xl mx-auto text-lg">
           Talk to a RACube architect. Walk away with a reference architecture and a
-          measurable 90-day roadmap — at no cost.
+          measurable 90-day roadmap - at no cost.
         </p>
         <div className="mt-10 flex flex-wrap gap-3 justify-center">
           <Link

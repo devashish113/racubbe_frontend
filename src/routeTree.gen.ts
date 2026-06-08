@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as ProductsRouteImport } from './routes/products'
+import { Route as OpeningsRouteImport } from './routes/openings'
 import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as GenesysRouteImport } from './routes/genesys'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -28,6 +29,11 @@ const SolutionsRoute = SolutionsRouteImport.update({
 const ProductsRoute = ProductsRouteImport.update({
   id: '/products',
   path: '/products',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OpeningsRoute = OpeningsRouteImport.update({
+  id: '/openings',
+  path: '/openings',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndustriesRoute = IndustriesRouteImport.update({
@@ -80,6 +86,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/genesys': typeof GenesysRoute
   '/industries': typeof IndustriesRoute
+  '/openings': typeof OpeningsRoute
   '/products': typeof ProductsRoute
   '/solutions': typeof SolutionsRoute
 }
@@ -92,6 +99,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/genesys': typeof GenesysRoute
   '/industries': typeof IndustriesRoute
+  '/openings': typeof OpeningsRoute
   '/products': typeof ProductsRoute
   '/solutions': typeof SolutionsRoute
 }
@@ -105,6 +113,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/genesys': typeof GenesysRoute
   '/industries': typeof IndustriesRoute
+  '/openings': typeof OpeningsRoute
   '/products': typeof ProductsRoute
   '/solutions': typeof SolutionsRoute
 }
@@ -119,6 +128,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/genesys'
     | '/industries'
+    | '/openings'
     | '/products'
     | '/solutions'
   fileRoutesByTo: FileRoutesByTo
@@ -131,6 +141,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/genesys'
     | '/industries'
+    | '/openings'
     | '/products'
     | '/solutions'
   id:
@@ -143,6 +154,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/genesys'
     | '/industries'
+    | '/openings'
     | '/products'
     | '/solutions'
   fileRoutesById: FileRoutesById
@@ -156,6 +168,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   GenesysRoute: typeof GenesysRoute
   IndustriesRoute: typeof IndustriesRoute
+  OpeningsRoute: typeof OpeningsRoute
   ProductsRoute: typeof ProductsRoute
   SolutionsRoute: typeof SolutionsRoute
 }
@@ -174,6 +187,13 @@ declare module '@tanstack/react-router' {
       path: '/products'
       fullPath: '/products'
       preLoaderRoute: typeof ProductsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/openings': {
+      id: '/openings'
+      path: '/openings'
+      fullPath: '/openings'
+      preLoaderRoute: typeof OpeningsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/industries': {
@@ -244,6 +264,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   GenesysRoute: GenesysRoute,
   IndustriesRoute: IndustriesRoute,
+  OpeningsRoute: OpeningsRoute,
   ProductsRoute: ProductsRoute,
   SolutionsRoute: SolutionsRoute,
 }

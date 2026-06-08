@@ -32,7 +32,7 @@ export function SiteHeader() {
           <img
             src={logo}
             alt="RACube Technologies"
-            className="h-9 w-auto drop-shadow-[0_0_18px_rgba(27,117,255,0.45)] group-hover:scale-105 transition"
+            className="h-15 w-auto drop-shadow-[0_0_18px_rgba(27,117,255,0.45)] group-hover:scale-105 transition"
           />
         </Link>
         <nav className="hidden lg:flex items-center gap-6 text-sm text-muted-foreground">
@@ -42,7 +42,8 @@ export function SiteHeader() {
               <Link
                 key={n.label}
                 to={n.to}
-                className={`relative transition-colors ${active ? "text-foreground" : "hover:text-foreground"}`}
+                className={`relative text-[16px] transition-colors ${active ? "text-foreground" : "hover:text-foreground"}`}
+                style={{ fontWeight:400 }}
               >
                 {n.label}
                 {active && (

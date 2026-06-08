@@ -6,9 +6,9 @@ import { FlowDivider } from "@/components/site/MotionFX";
 export const Route = createFileRoute("/industries")({
   head: () => ({
     meta: [
-      { title: "Industries — RACube Technologies" },
+      { title: "Industries - RACube Technologies" },
       { name: "description", content: "Deep CX, AI and cloud expertise across banking, healthcare, retail, telecom, insurance, government and logistics." },
-      { property: "og:title", content: "Industries — RACube Technologies" },
+      { property: "og:title", content: "Industries - RACube Technologies" },
       { property: "og:description", content: "Industry-deep delivery for regulated, customer-led enterprises." },
     ],
   }),
