@@ -202,7 +202,7 @@ To serve your application publicly on port `80` (HTTP) using your EC2 instance's
            proxy_set_header Host $host;
            proxy_cache_bypass $http_upgrade;
            proxy_set_header X-Real-IP $remote_addr;
-           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded-for;
+           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
        }
    }
    ```
