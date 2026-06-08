@@ -1,6 +1,6 @@
 import { Github, Linkedin, Twitter, Mail } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import logo from "@/assets/racube-logo.png.asset.json";
+import logo from "@/assets/racube-logo.png";
 
 const cols: { title: string; items: { label: string; to: string }[] }[] = [
   {
@@ -39,7 +39,7 @@ export function SiteFooter() {
         <div className="grid lg:grid-cols-6 gap-12">
           <div className="lg:col-span-2 space-y-6">
             <Link to="/" className="inline-flex items-center gap-3">
-              <img src={logo.url} alt="RACube Technologies" className="h-15 w-auto" />
+              <img src={logo} alt="RACube Technologies" className="h-15 w-auto" />
             </Link>
             <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">
               Genesys Premier Partner. Helping global enterprises modernize CCaaS, UCaaS, AI, Cloud and Customer Experience ecosystems.
