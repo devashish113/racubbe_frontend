@@ -2,7 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useState } from "react";
 import { Menu, X, ArrowRight } from "lucide-react";
-import logo from "@/assets/racube-logo.png.asset.json";
+import logo from "@/assets/racube-logo.png";
 
 const nav = [
   { label: "Solutions", to: "/solutions" },
@@ -30,7 +30,7 @@ export function SiteHeader() {
       <div className="mx-auto max-w-7xl px-6 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2.5 group">
           <img
-            src={logo.url}
+            src={logo}
             alt="RACube Technologies"
             className="h-9 w-auto drop-shadow-[0_0_18px_rgba(27,117,255,0.45)] group-hover:scale-105 transition"
           />
