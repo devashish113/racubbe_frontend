@@ -175,9 +175,9 @@ Push a minor change to your repository. Navigate to Jenkins to verify that a new
 
 ---
 
-## Step 8: Configure Nginx Reverse Proxy & SSL on EC2
+## Step 8: Configure Nginx Reverse Proxy (Using IP Address or Domain)
 
-To serve your application securely on port `80`/`443` with Let's Encrypt:
+To serve your application publicly on port `80` (HTTP) using your EC2 instance's public IP address (or a domain if you obtain one later):
 
 1. **Install Nginx:**
    ```bash
@@ -187,11 +187,12 @@ To serve your application securely on port `80`/`443` with Let's Encrypt:
    ```bash
    sudo nano /etc/nginx/sites-available/racube
    ```
-   Paste the following configuration:
+   Paste the following configuration. By using `listen 80 default_server;` and `server_name _;`, Nginx will handle all HTTP requests hitting your EC2's public IP address:
    ```nginx
    server {
-       listen 80;
-       server_name yourdomain.com www.yourdomain.com;
+       listen 80 default_server;
+       listen [::]:80 default_server;
+       server_name _;
 
        location / {
            proxy_pass http://localhost:3000;
@@ -208,16 +209,36 @@ To serve your application securely on port `80`/`443` with Let's Encrypt:
 3. **Enable Site & Restart Nginx:**
    ```bash
    sudo ln -s /etc/nginx/sites-available/racube /etc/nginx/sites-enabled/
-   sudo rm -s /etc/nginx/sites-enabled/default || true
+   # Remove default Nginx site configuration to avoid conflicts
+   sudo rm /etc/nginx/sites-enabled/default || true
    sudo nginx -t
    sudo systemctl restart nginx
    ```
-4. **Obtain SSL using Certbot:**
+
+At this point, you can access your application by entering `http://<your-ec2-public-ip>` directly in your browser.
+
+---
+
+## (Optional) Step 9: Configure SSL with Let's Encrypt (Once you have a Domain)
+
+If you point a domain name (e.g., `yourdomain.com`) to your EC2 public IP later:
+
+1. **Update Nginx config** (`/etc/nginx/sites-available/racube`):
+   Change `server_name _;` to:
+   ```nginx
+   server_name yourdomain.com www.yourdomain.com;
+   ```
+2. **Test and reload Nginx:**
+   ```bash
+   sudo nginx -t
+   sudo systemctl reload nginx
+   ```
+3. **Obtain SSL using Certbot:**
    ```bash
    sudo apt-get install -y certbot python3-certbot-nginx
    sudo certbot --nginx -d yourdomain.com -d www.yourdomain.com
    ```
-   Follow the interactive prompts to generate the certificate and automatically redirect HTTP to HTTPS.
+   Follow the interactive prompts to generate the SSL certificate and automatically redirect HTTP to HTTPS.
 
 ---
 
